@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become a City Lead — GuardRailNow AI Risk Network</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">GuardRail<span>Now</span></a>
+        <span class="header-sub">AI Risk Network — City Lead Program</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>Become a City Lead</h1>
+        <p>Fill out the form below to join the network. We'll review your application and reach out about shipping your Tabling Kit.</p>
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <div class="container">
+
+        <div id="alert-success" class="alert success">
+          Thank you for signing up! We'll be in touch soon about your Tabling Kit.
+        </div>
+        <div id="alert-error" class="alert error">
+          Something went wrong. Please try again or email us directly.
+        </div>
+
+        <form id="signup-form" novalidate>
+
+          <div class="form-section">
+            <div class="form-section-title">Contact Information</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" required placeholder="Jane">
+              </div>
+              <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="last_name" required placeholder="Smith">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="jane@example.com">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone <span class="optional">optional</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Location</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required placeholder="Austin">
+              </div>
+              <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" required placeholder="TX" maxlength="2">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="shipping_address">Shipping Address <span class="optional">if different from city — for kit delivery</span></label>
+              <textarea id="shipping_address" name="shipping_address" placeholder="Street, City, State, ZIP" rows="2"></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Background</div>
+            <div class="form-group">
+              <label for="organization">Organization / Affiliation <span class="optional">optional</span></label>
+              <input type="text" id="organization" name="organization" placeholder="Company, university, community group, etc.">
+            </div>
+            <div class="form-group">
+              <label for="heard_from">How did you hear about us?</label>
+              <select id="heard_from" name="heard_from" required>
+                <option value="">— select one —</option>
+                <option value="Social media">Social media</option>
+                <option value="Referral">Referral from someone I know</option>
+                <option value="Event">At a community event</option>
+                <option value="Website">GuardRailNow website</option>
+                <option value="News/media">News or media coverage</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="motivation">Why do you want to be a City Lead?</label>
+              <textarea id="motivation" name="motivation" required placeholder="Tell us what motivates you to get involved with AI risk outreach..." rows="4"></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Social Media <span class="optional" style="font-family:Inter,sans-serif;font-size:0.8rem;">(optional — helps us get to know you)</span></div>
+            <div class="form-group">
+              <label for="linkedin">LinkedIn <span class="optional">profile URL</span></label>
+              <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourname">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="twitter">X / Twitter <span class="optional">handle</span></label>
+                <input type="text" id="twitter" name="twitter" placeholder="@yourhandle">
+              </div>
+              <div class="form-group">
+                <label for="other_social">Other <span class="optional">Bluesky, Facebook, etc.</span></label>
+                <input type="text" id="other_social" name="other_social" placeholder="Platform: handle or URL">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Commitment</div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="commitment" name="commitment" required>
+              <label for="commitment">
+                I commit to running <strong>2–3 community outreach events</strong> within 60–90 days of receiving my Tabling Kit and submitting an After-Action Report within 72 hours of each event.
+              </label>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="social_review" name="social_review" required>
+              <label for="social_review">
+                I understand that submitted social media profiles may be reviewed as part of the City Lead application process to ensure alignment with GuardRailNow's mission and values.
+              </label>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary" id="submit-btn">Submit Application</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>A project of <a href="https://www.guardrailnow.org" target="_blank" rel="noopener">GuardRailNow.org</a> &amp; the AI Risk Network.</p>
+    </div>
+  </footer>
+
+  <script src="js/form.js"></script>
+  <script>
+    initForm({
+      formId: 'signup-form',
+      endpoint: '/.netlify/functions/signup',
+      submitBtnId: 'submit-btn',
+      successId: 'alert-success',
+      errorId: 'alert-error'
+    });
+  </script>
+</body>
+</html>

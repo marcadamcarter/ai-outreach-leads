@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>After-Action Report — GuardRailNow AI Risk Network</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">GuardRail<span>Now</span></a>
+        <span class="header-sub">AI Risk Network — City Lead Program</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>After-Action Report</h1>
+        <p>Submit within 72 hours of your event. Your feedback helps us measure impact and improve the program for every City Lead.</p>
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <div class="container">
+
+        <div id="alert-success" class="alert success">
+          Report submitted — thank you! Your feedback makes the program stronger.
+        </div>
+        <div id="alert-error" class="alert error">
+          Something went wrong. Please try again or email us directly.
+        </div>
+
+        <form id="aar-form" novalidate>
+
+          <div class="form-section">
+            <div class="form-section-title">Your Information</div>
+            <div class="form-group">
+              <label for="email">Your Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="The email you used to sign up as a City Lead">
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Event Details</div>
+            <div class="form-group">
+              <label for="event_name">Event Name / Venue</label>
+              <input type="text" id="event_name" name="event_name" required placeholder="e.g. Downtown Farmers Market, City Hall Art Walk">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="event_date">Event Date</label>
+                <input type="date" id="event_date" name="event_date" required>
+              </div>
+              <div class="form-group">
+                <label for="event_type">Event Type</label>
+                <select id="event_type" name="event_type" required>
+                  <option value="">— select one —</option>
+                  <option value="Farmers market">Farmers market</option>
+                  <option value="Art walk">Art walk</option>
+                  <option value="Conference">Conference</option>
+                  <option value="Community meeting">Community meeting</option>
+                  <option value="Festival">Festival or fair</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required placeholder="Austin">
+              </div>
+              <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" required placeholder="TX" maxlength="2">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="duration">Duration <span class="optional">hours at table</span></label>
+                <input type="number" id="duration" name="duration" min="0.5" max="24" step="0.5" placeholder="3">
+              </div>
+              <div class="form-group">
+                <label for="volunteers">Volunteers at Table</label>
+                <input type="number" id="volunteers" name="volunteers" min="1" placeholder="2">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Numbers</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="flyers">Flyers Distributed</label>
+                <input type="number" id="flyers" name="flyers" min="0" placeholder="50">
+              </div>
+              <div class="form-group">
+                <label for="conversations">Conversations <span class="optional">estimated</span></label>
+                <input type="number" id="conversations" name="conversations" min="0" placeholder="25">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="conversions">Conversions <span class="optional">signups, donations, pledges</span></label>
+                <input type="number" id="conversions" name="conversions" min="0" placeholder="8">
+              </div>
+              <div class="form-group">
+                <label for="conversion_type">Conversion Type <span class="optional">if any</span></label>
+                <select id="conversion_type" name="conversion_type">
+                  <option value="">— select one —</option>
+                  <option value="Newsletter signup">Newsletter signup</option>
+                  <option value="Donation">Donation</option>
+                  <option value="Pledge">Pledge of support</option>
+                  <option value="Mixed">Mix of the above</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Qualitative Feedback</div>
+            <div class="form-group">
+              <label for="top_questions">Top Questions from the Public</label>
+              <textarea id="top_questions" name="top_questions" rows="3" placeholder="What did people ask most? What confused them? What surprised you?"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="what_worked">What Worked Well</label>
+              <textarea id="what_worked" name="what_worked" rows="3" placeholder="Messaging, materials, location, timing — anything that landed well."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="improvements">What Could Be Improved</label>
+              <textarea id="improvements" name="improvements" rows="3" placeholder="What would you change for next time? Any friction points?"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="materials_needed">Materials Needed / Restock Request <span class="optional">optional</span></label>
+              <textarea id="materials_needed" name="materials_needed" rows="2" placeholder="Running low on flyers? Need different signage? Let us know."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="photo_link">Photos <span class="optional">optional — paste a Google Drive or Dropbox share link</span></label>
+              <input type="url" id="photo_link" name="photo_link" placeholder="https://drive.google.com/...">
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Follow-Up</div>
+            <div class="form-group">
+              <label for="do_again">Would you run this event format again?</label>
+              <select id="do_again" name="do_again" required>
+                <option value="">— select one —</option>
+                <option value="Yes">Yes — definitely</option>
+                <option value="Maybe">Maybe — with some changes</option>
+                <option value="No">No — would try a different format</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary" id="submit-btn">Submit Report</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>A project of <a href="https://www.guardrailnow.org" target="_blank" rel="noopener">GuardRailNow.org</a> &amp; the AI Risk Network.</p>
+    </div>
+  </footer>
+
+  <script src="js/form.js"></script>
+  <script>
+    initForm({
+      formId: 'aar-form',
+      endpoint: '/.netlify/functions/aar',
+      submitBtnId: 'submit-btn',
+      successId: 'alert-success',
+      errorId: 'alert-error'
+    });
+  </script>
+</body>
+</html>
