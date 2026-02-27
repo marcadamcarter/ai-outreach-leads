@@ -221,6 +221,12 @@ form { max-width: 680px; }
   display: flex;
   flex-direction: column;
 }
+.form-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: -0.4rem 0 1rem;
+}
+.form-hint a { color: var(--amber-light); }
 
 label {
   font-size: 0.875rem;

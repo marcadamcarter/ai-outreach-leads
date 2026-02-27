@@ -46,6 +46,27 @@
           </div>
 
           <div class="form-section">
+            <div class="form-section-title">Outreach Mode</div>
+            <div class="form-group">
+              <label for="outreach_mode">Outreach Mode</label>
+              <select id="outreach_mode" name="outreach-mode" required>
+                <option value="">— select one —</option>
+                <option value="Static Presence">Static Presence — Flyers, posters, bulletin boards</option>
+                <option value="Signal Actions">Signal Actions — High-visibility public moments</option>
+                <option value="Interactive Booths">Interactive Booths — Tabling at events</option>
+                <option value="Micro-Gatherings">Micro-Gatherings — Small group discussions</option>
+                <option value="Digital Amplification">Digital Amplification — Social media, online</option>
+                <option value="Individual Advocacy">Individual Advocacy — One-on-one conversations</option>
+                <option value="Institutional Touchpoints">Institutional Touchpoints — City council, schools, orgs</option>
+              </select>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="sponsor_involved" name="sponsor-involved" value="Yes">
+              <label for="sponsor_involved">This activity was sponsor-supported</label>
+            </div>
+          </div>
+
+          <div class="form-section">
             <div class="form-section-title">Event Details</div>
             <div class="form-group">
               <label for="event_name">Event Name / Venue</label>
@@ -60,11 +81,38 @@
                 <label for="event_type">Event Type</label>
                 <select id="event_type" name="event_type" required>
                   <option value="">— select one —</option>
-                  <option value="Farmers market">Farmers market</option>
-                  <option value="Art walk">Art walk</option>
-                  <option value="Conference">Conference</option>
-                  <option value="Community meeting">Community meeting</option>
-                  <option value="Festival">Festival or fair</option>
+                  <optgroup label="Static Presence">
+                    <option value="Flyer placement">Flyer placement</option>
+                    <option value="Poster campaign">Poster campaign</option>
+                  </optgroup>
+                  <optgroup label="Signal Actions">
+                    <option value="Public demonstration">Public demonstration</option>
+                    <option value="Visibility action">Visibility action</option>
+                  </optgroup>
+                  <optgroup label="Interactive Booths">
+                    <option value="Farmers market">Farmers market</option>
+                    <option value="Festival or fair">Festival or fair</option>
+                    <option value="Art walk">Art walk</option>
+                    <option value="Conference">Conference</option>
+                  </optgroup>
+                  <optgroup label="Micro-Gatherings">
+                    <option value="House party">House party</option>
+                    <option value="Meetup">Meetup</option>
+                    <option value="Book club">Book club</option>
+                    <option value="Community meeting">Community meeting</option>
+                  </optgroup>
+                  <optgroup label="Digital Amplification">
+                    <option value="Social media campaign">Social media campaign</option>
+                    <option value="Online event">Online event</option>
+                  </optgroup>
+                  <optgroup label="Individual Advocacy">
+                    <option value="One-on-one conversation">One-on-one conversation</option>
+                  </optgroup>
+                  <optgroup label="Institutional Touchpoints">
+                    <option value="City council">City council</option>
+                    <option value="School board">School board</option>
+                    <option value="Organizational briefing">Organizational briefing</option>
+                  </optgroup>
                   <option value="Other">Other</option>
                 </select>
               </div>
@@ -115,6 +163,7 @@
                   <option value="Newsletter signup">Newsletter signup</option>
                   <option value="Donation">Donation</option>
                   <option value="Pledge">Pledge of support</option>
+                  <option value="Social follow">Social follow</option>
                   <option value="Mixed">Mix of the above</option>
                   <option value="Other">Other</option>
                 </select>
