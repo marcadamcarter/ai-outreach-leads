@@ -30,8 +30,17 @@ exports.handler = async (event) => {
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid JSON' }) };
   }
 
+  // preferred-modes[] arrives as repeated keys; FormData flattens to last value,
+  // so collect all values from the raw body key array
+  const preferredModes = Array.isArray(data['preferred-modes[]'])
+    ? data['preferred-modes[]']
+    : data['preferred-modes[]']
+      ? [data['preferred-modes[]']]
+      : [];
+
   const fields = {
-    'Name':                    `${data.first_name || ''} ${data.last_name || ''}`.trim(),
+    'First Name':              data.first_name || '',
+    'Last Name':               data.last_name || '',
     'Email':                   data.email || '',
     'Phone':                   data.phone || '',
     'City':                    data.city || '',
@@ -43,9 +52,10 @@ exports.handler = async (event) => {
     'Other Social':            data.other_social || '',
     'How did you hear about us?': data.heard_from || '',
     'Why do you want to help?':   data.motivation || '',
+    'Preferred Modes':         preferredModes,
     'Commitment Acknowledged': data.commitment === true || data.commitment === 'true',
     'Social Review Acknowledged': data.social_review === true || data.social_review === 'true',
-    'Status':                  'Pending',
+    'Status':                  'Applied',
     'Signed Up':               new Date().toISOString().split('T')[0],
   };
 

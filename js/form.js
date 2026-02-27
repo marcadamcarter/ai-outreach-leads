@@ -28,12 +28,19 @@ function initForm({ formId, endpoint, submitBtnId, successId, errorId }) {
     const data = {};
     const formData = new FormData(form);
     formData.forEach((value, key) => {
-      data[key] = value;
+      if (key.endsWith('[]')) {
+        // Multi-value fields (e.g. preferred-modes[]) → array
+        if (!Array.isArray(data[key])) data[key] = [];
+        data[key].push(value);
+      } else {
+        data[key] = value;
+      }
     });
 
-    // Checkboxes not checked won't appear in FormData — add them explicitly
-    form.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
-      data[cb.name] = cb.checked;
+    // Single checkboxes not checked won't appear in FormData — add them explicitly
+    // (skip array-style checkbox groups handled above)
+    form.querySelectorAll('input[type="checkbox"]:not([name$="[]"])').forEach((cb) => {
+      if (!(cb.name in data)) data[cb.name] = cb.checked;
     });
 
     btn.disabled = true;
