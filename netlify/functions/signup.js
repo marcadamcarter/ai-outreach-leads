@@ -23,10 +23,16 @@ exports.handler = async (event) => {
     return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
+  console.log('[signup] invoked, method:', event.httpMethod);
+  console.log('[signup] AIRTABLE_BASE_ID set:', !!process.env.AIRTABLE_BASE_ID);
+  console.log('[signup] AIRTABLE_PAT set:', !!process.env.AIRTABLE_PAT);
+
   let data;
   try {
     data = JSON.parse(event.body);
+    console.log('[signup] body parsed, keys:', Object.keys(data));
   } catch {
+    console.error('[signup] JSON parse failed');
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid JSON' }) };
   }
 
@@ -64,9 +70,12 @@ exports.handler = async (event) => {
     if (fields[k] === '') delete fields[k];
   });
 
+  console.log('[signup] fields to send:', JSON.stringify(fields));
+
   try {
-    const res = await fetch(
-      `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE)}`,
+    const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE)}`;
+    console.log('[signup] POSTing to:', url);
+    const res = await fetch(url,
       {
         method: 'POST',
         headers: {
@@ -77,9 +86,10 @@ exports.handler = async (event) => {
       }
     );
 
+    console.log('[signup] Airtable response status:', res.status);
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
-      console.error('Airtable error:', err);
+      console.error('[signup] Airtable error:', JSON.stringify(err));
       return {
         statusCode: 502,
         headers,
@@ -90,7 +100,7 @@ exports.handler = async (event) => {
     return { statusCode: 200, headers, body: JSON.stringify({ success: true }) };
 
   } catch (err) {
-    console.error('Function error:', err);
+    console.error('[signup] Function error:', err.message, err.stack);
     return { statusCode: 500, headers, body: JSON.stringify({ error: 'Internal server error' }) };
   }
 };
