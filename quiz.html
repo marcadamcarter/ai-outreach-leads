@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Risk Knowledge Quiz — GuardRailNow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">GuardR<span>ai</span>lNow</a>
+        <span class="header-sub">AI Risk Network — City Lead Program</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>AI Risk Knowledge Quiz</h1>
+        <p>Test your understanding of AI safety concepts. Answer all 5 questions, and if you get a perfect score you'll earn a free t-shirt!</p>
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <div class="container">
+
+        <form id="quiz-form" novalidate>
+
+          <div class="form-section">
+            <div class="form-section-title">Your Email</div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="jane@example.com">
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Question 1 of 5</div>
+            <p class="quiz-question">What does "alignment" mean in AI safety?</p>
+            <div class="checkbox-group">
+              <input type="radio" id="q1a" name="q1" value="A" required>
+              <label for="q1a">Making AI systems run faster and more efficient</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q1b" name="q1" value="B">
+              <label for="q1b">Making AI act according to human values</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q1c" name="q1" value="C">
+              <label for="q1c">Aligning multiple AI models to work together</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q1d" name="q1" value="D">
+              <label for="q1d">Training AI on curated datasets</label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Question 2 of 5</div>
+            <p class="quiz-question">Which is an example of an "existential risk" from advanced AI?</p>
+            <div class="checkbox-group">
+              <input type="radio" id="q2a" name="q2" value="A" required>
+              <label for="q2a">An AI chatbot giving a rude response to a customer</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q2b" name="q2" value="B">
+              <label for="q2b">AI displacing some jobs in the short term</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q2c" name="q2" value="C">
+              <label for="q2c">AI generating images that infringe on copyright protections</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q2d" name="q2" value="D">
+              <label for="q2d">A superintelligent AI pursuing goals misaligned with human survival</label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Question 3 of 5</div>
+            <p class="quiz-question">What is "the control problem" in AI safety?</p>
+            <div class="checkbox-group">
+              <input type="radio" id="q3a" name="q3" value="A" required>
+              <label for="q3a">Preventing hackers from accessing AI systems</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q3b" name="q3" value="B">
+              <label for="q3b">Controlling how much electricity AI data centers use</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q3c" name="q3" value="C">
+              <label for="q3c">Keeping meaningful human oversight over powerful AI</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q3d" name="q3" value="D">
+              <label for="q3d">Managing which companies are allowed to build AI and which ones are not</label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Question 4 of 5</div>
+            <p class="quiz-question">Why do researchers worry about "instrumental convergence"?</p>
+            <div class="checkbox-group">
+              <input type="radio" id="q4a" name="q4" value="A" required>
+              <label for="q4a">Advanced AI may seek self-preservation regardless of its goal</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q4b" name="q4" value="B">
+              <label for="q4b">AI models tend to converge on the same architecture over time</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q4c" name="q4" value="C">
+              <label for="q4c">Different AI labs are converging on the same training methods</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q4d" name="q4" value="D">
+              <label for="q4d">All AI instruments eventually need recalibration to remain accurate</label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Question 5 of 5</div>
+            <p class="quiz-question">What role does public awareness play in AI safety?</p>
+            <div class="checkbox-group">
+              <input type="radio" id="q5a" name="q5" value="A" required>
+              <label for="q5a">It has no meaningful impact on AI development</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q5b" name="q5" value="B">
+              <label for="q5b">It mainly helps consumers choose better AI products for their needs</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q5c" name="q5" value="C">
+              <label for="q5c">It enables citizens to push for responsible AI policy</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="radio" id="q5d" name="q5" value="D">
+              <label for="q5d">It only matters for people who work in technology</label>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary" id="submit-btn">See My Results</button>
+          </div>
+
+        </form>
+
+        <div id="quiz-result" class="quiz-result" style="display:none;">
+          <h2 id="result-tier"></h2>
+          <p id="result-score"></p>
+          <p id="result-message"></p>
+
+          <div id="tshirt-congrats" class="tshirt-congrats" style="display:none;">
+            <strong>Congratulations!</strong> You got a perfect score! You've earned a free GuardRailNow t-shirt. We'll use the email you provided to follow up with details.
+          </div>
+
+          <div class="quiz-cta">
+            <p>Want to help spread AI risk awareness in your community?</p>
+            <a href="signup.html" class="btn btn-primary btn-lg">Become a City Lead</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>A project of <a href="https://www.guardrailnow.org" target="_blank" rel="noopener">GuardRailNow.org</a> &amp; the AI Risk Network.</p>
+    </div>
+  </footer>
+
+  <script src="js/quiz.js"></script>
+</body>
+</html>
