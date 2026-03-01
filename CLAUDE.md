@@ -168,14 +168,14 @@ run-again → Run Again?
 ## Outstanding Tasks
 
 1. [x] Airtable Leads table — structure complete
-2. [x] Airtable AARs table — structure complete  
+2. [x] Airtable AARs table — structure complete
 3. [x] Airtable linking — Lead ↔ AAR via email lookup
 4. [x] Airtable rollups — Count AARs, Total Conversations, etc.
-5. [ ] **signup.html** — Add "Preferred Modes" checkbox group
-6. [ ] **aar.html** — Add "Outreach Mode" dropdown + "Sponsor Involved" checkbox
-7. [ ] **aar.html** — Expand Event Type dropdown with grouped options
-8. [ ] Netlify → Airtable automation (Zapier or Make)
-9. [ ] Test form submissions end-to-end
+5. [x] **signup.html** — Add "Preferred Modes" checkbox group
+6. [x] **aar.html** — Add "Outreach Mode" dropdown + "Sponsor Involved" checkbox
+7. [x] **aar.html** — Expand Event Type dropdown with grouped options
+8. [x] Netlify → Airtable integration via Netlify Functions (direct API, no Zapier needed)
+9. [x] Test form submissions end-to-end — both signup and AAR confirmed working
 
 ---
 
