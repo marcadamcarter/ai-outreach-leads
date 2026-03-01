@@ -53,25 +53,26 @@ exports.handler = async (event) => {
   }
 
   const fields = {
-    'Lead Email':          data.email || '',
-    'Event Name / Venue':  data.event_name || '',
+    'Outreach Mode':       data['outreach-mode'] || '',
+    'Sponsor Involved':    data['sponsor-involved'] === true || data['sponsor-involved'] === 'Yes',
+    'Event Name':          data.event_name || '',
     'Event Date':          data.event_date || '',
     'Event Type':          data.event_type || '',
     'City':                data.city || '',
     'State':               (data.state || '').toUpperCase(),
-    'Duration (hours)':    data.duration ? parseFloat(data.duration) : undefined,
-    'Volunteers at Table': data.volunteers ? parseInt(data.volunteers, 10) : undefined,
+    'Duration (hrs)':      data.duration ? parseFloat(data.duration) : undefined,
+    'Volunteers':          data.volunteers ? parseInt(data.volunteers, 10) : undefined,
     'Flyers Distributed':  data.flyers ? parseInt(data.flyers, 10) : undefined,
     'Conversations':       data.conversations ? parseInt(data.conversations, 10) : undefined,
     'Conversions':         data.conversions ? parseInt(data.conversions, 10) : undefined,
     'Conversion Type':     data.conversion_type || '',
-    'Top Questions from Public': data.top_questions || '',
-    'What Worked Well':    data.what_worked || '',
-    'What Could Be Improved': data.improvements || '',
-    'Materials Needed':    data.materials_needed || '',
+    'Top Questions':       data.top_questions || '',
+    'What Worked':         data.what_worked || '',
+    'Improvements':        data.improvements || '',
+    'Restock Request':     data.materials_needed || '',
     'Photo Link':          data.photo_link || '',
-    'Would You Do This Again?': data.do_again || '',
-    'Submitted':           new Date().toISOString().split('T')[0],
+    'Run Again?':          data.do_again || '',
+    'Submitted Date':      new Date().toISOString().split('T')[0],
   };
 
   // Link to Lead record if found
