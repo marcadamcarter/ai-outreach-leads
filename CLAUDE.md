@@ -60,6 +60,24 @@ These are core to the data model. Every AAR should capture which mode was used:
 | Last Event Date | Rollup | MAX of Event Date |
 | Modes Used | Rollup | ARRAYJOIN(ARRAYUNIQUE(Outreach Mode)) |
 
+### Quiz Results Table
+| Field | Type | Notes |
+|-------|------|-------|
+| Name | Auto-number | e.g., QR-001 |
+| Email | Email | Quiz taker's email |
+| Lead | Link to Leads | Linked via `?ref=` URL param or email fallback |
+| Score | Number | 0–5 |
+| Total Questions | Number | Always 5 |
+| Tier | Single select | AI Novice, Informed Citizen, AI Safety Pro |
+| Answers | Long text | JSON array with question, picked, answer, correct per question |
+| T-Shirt Qualified | Checkbox | True only for 5/5 |
+| Submitted Date | Date | Auto-filled |
+
+### Leads Table — Quiz Link Field
+| Field | Type | Notes |
+|-------|------|-------|
+| Quiz Link | Formula | `"https://ai-outreach-leads.netlify.app/quiz.html?ref=" & RECORD_ID()` |
+
 ### AARs Table
 | Field | Type | Notes |
 |-------|------|-------|
@@ -89,6 +107,37 @@ These are core to the data model. Every AAR should capture which mode was used:
 | Run Again? | Single select | Yes definitely, Maybe with changes, No |
 | Submitted Date | Date | Auto-filled |
 | Staff Notes | Long text | Internal |
+
+---
+
+## Quiz Feature
+
+### Overview
+5-question multiple-choice AI risk knowledge quiz for Interactive Booth visitors. Scored client-side, results displayed instantly, saved to Airtable in background.
+
+### Scoring Tiers
+| Score | Tier | T-Shirt? |
+|-------|------|----------|
+| 0–1 | AI Novice | No |
+| 2–3 | Informed Citizen | No |
+| 4–5 | AI Safety Pro | 5/5 only |
+
+### Per-Lead Tracking
+Each City Lead gets a unique quiz URL via `?ref=<Airtable record ID>`. Quiz submissions with a `ref` param link directly to that Lead in the Quiz Results table. Without `ref`, falls back to email lookup.
+
+- **Leads table formula field:** `Quiz Link` = `"https://ai-outreach-leads.netlify.app/quiz.html?ref=" & RECORD_ID()`
+- Leads generate QR codes from their Quiz Link for use at booth events
+
+### quiz.html → Airtable Mapping
+```
+email → Email
+score → Score
+totalQuestions → Total Questions
+tier → Tier
+answers → Answers (JSON)
+tshirtQualified → T-Shirt Qualified
+leadRef → Lead (link, from ?ref= URL param)
+```
 
 ---
 
@@ -176,6 +225,10 @@ run-again → Run Again?
 7. [x] **aar.html** — Expand Event Type dropdown with grouped options
 8. [x] Netlify → Airtable integration via Netlify Functions (direct API, no Zapier needed)
 9. [x] Test form submissions end-to-end — both signup and AAR confirmed working
+10. [x] **quiz.html** — AI Risk Knowledge Quiz with client-side scoring
+11. [x] **netlify/functions/quiz.js** — Airtable persistence for quiz results
+12. [x] Per-Lead quiz tracking via `?ref=` URL param
+13. [ ] Airtable automation: "Send Quiz Kit Email" on Lead approval (see README TODO)
 
 ---
 
@@ -191,6 +244,7 @@ ai-outreach-leads/
 ├── index.html
 ├── signup.html      ← City Lead application form
 ├── aar.html         ← After-Action Report form
+├── quiz.html        ← AI Risk Knowledge Quiz
 ├── netlify.toml
 └── README.md
 ```
