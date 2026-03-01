@@ -1,7 +1,7 @@
 /**
  * Netlify Function: quiz
  * Receives quiz results and creates a record in Airtable "Quiz Results" table.
- * Links to the Leads table by matching on email.
+ * Links to the Leads table via ?ref= URL param (Lead record ID) or email fallback.
  *
  * Environment variables required (set in Netlify dashboard):
  *   AIRTABLE_PAT      — Personal Access Token (starts with "pat...")
@@ -35,21 +35,23 @@ exports.handler = async (event) => {
   const baseUrl = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}`;
   const authHeader = { Authorization: `Bearer ${process.env.AIRTABLE_PAT}` };
 
-  // Look up the Lead record by email so we can link
-  let leadRecordId = null;
-  try {
-    const lookupRes = await fetch(
-      `${baseUrl}/${encodeURIComponent(AIRTABLE_LEADS_TABLE)}?filterByFormula=LOWER({Email})="${(data.email || '').toLowerCase()}"&maxRecords=1`,
-      { headers: authHeader }
-    );
-    if (lookupRes.ok) {
-      const lookupData = await lookupRes.json();
-      if (lookupData.records && lookupData.records.length > 0) {
-        leadRecordId = lookupData.records[0].id;
+  // Link to Lead: use ref param (record ID) if provided, else try email lookup
+  let leadRecordId = data.leadRef || null;
+  if (!leadRecordId) {
+    try {
+      const lookupRes = await fetch(
+        `${baseUrl}/${encodeURIComponent(AIRTABLE_LEADS_TABLE)}?filterByFormula=LOWER({Email})="${(data.email || '').toLowerCase()}"&maxRecords=1`,
+        { headers: authHeader }
+      );
+      if (lookupRes.ok) {
+        const lookupData = await lookupRes.json();
+        if (lookupData.records && lookupData.records.length > 0) {
+          leadRecordId = lookupData.records[0].id;
+        }
       }
+    } catch (err) {
+      console.warn('Lead lookup failed, continuing without link:', err);
     }
-  } catch (err) {
-    console.warn('Lead lookup failed, continuing without link:', err);
   }
 
   const fields = {

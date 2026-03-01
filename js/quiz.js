@@ -82,6 +82,8 @@ document.getElementById('quiz-form').addEventListener('submit', function (e) {
   resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   // Background save to Airtable
+  // ?ref= param links quiz to the City Lead who shared this URL
+  const ref = new URLSearchParams(window.location.search).get('ref');
   const payload = {
     email: email,
     score: score,
@@ -90,6 +92,7 @@ document.getElementById('quiz-form').addEventListener('submit', function (e) {
     answers: JSON.stringify(answers),
     tshirtQualified: score === total
   };
+  if (ref) payload.leadRef = ref;
 
   fetch('/.netlify/functions/quiz', {
     method: 'POST',
